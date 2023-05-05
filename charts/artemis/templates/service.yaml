@@ -5,25 +5,44 @@ metadata:
   labels:
 {{ include "artemis.labels.live" . | indent 4 }}
 spec:
+{{- if .Values.service.nodePort.enabled }}
+  type: NodePort
+{{- else }}
   clusterIP: None
+{{- end }}
   ports:
     - port: 61616
       targetPort: netty
       protocol: TCP
       name: netty
+{{- if .Values.service.nodePort.enabled }}
+      nodePort: {{ .Values.service.nodePort.netty }}
+{{- end }}
     - port: 5672
       targetPort: amqp
       name: amqp
+{{- if .Values.service.nodePort.enabled }}
+      nodePort: {{ .Values.service.nodePort.amqp }}
+{{- end }}
     - port: 61613
       targetPort: stomp
       name: stomp
+{{- if .Values.service.nodePort.enabled }}
+      nodePort: {{ .Values.service.nodePort.stomp }}
+{{- end }}
     - port: 1883
       targetPort: mqtt
       name: mqtt
+{{- if .Values.service.nodePort.enabled }}
+      nodePort: {{ .Values.service.nodePort.mqtt }}
+{{- end }}
     {{- if .Values.metrics.enabled }}
     - port: 9404
       targetPort: prometheus
       name: prometheus
+{{- if .Values.service.nodePort.enabled }}
+      nodePort: {{ .Values.service.nodePort.prometheus }}
+{{- end }}
     {{- end }}
 
   selector:
