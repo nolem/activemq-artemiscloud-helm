@@ -1,0 +1,16 @@
+apiVersion: v1
+entries:
+  artemis:
+  - apiVersion: v1
+    appVersion: 2.9.0
+    created: "2023-05-05T11:31:05.894019+02:00"
+    description: A Helm chart installing Apache ActiveMQ Artemis
+    digest: 2889a60bb362801ad21d577a4d02e8f8b81260217f69dcaf12a07a5dcf65f1ed
+    icon: https://raw.githubusercontent.com/apache/activemq-artemis/2.9.0/artemis-website/src/main/resources/images/artemis-logo.png
+    maintainers:
+    - name: Macstab GmbH
+    name: artemis
+    urls:
+    - https://github.com/nolem/activemq-artemiscloud-helm/artemis-1.0.0-SNAPSHOT.tgz
+    version: 1.0.0-SNAPSHOT
+generated: "2023-05-05T11:31:05.89324+02:00"
