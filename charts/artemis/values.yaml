@@ -2,8 +2,8 @@ replicaCount: 1
 
 image:
 ## repository and image tag are required
-#  repository: some/image
-#  tag: 2.17.0
+  repository: quay.io/artemiscloud/activemq-artemis-broker-kubernetes
+  tag: 1.0.16
   pullPolicy: IfNotPresent
   pullSecrets: []
 
@@ -56,6 +56,9 @@ metrics:
 auth:
   clientUser: artemis
   clusterUser: artemis-internal
+
+role:
+  enabled: false
 
 jgroups:
   # jgroups.k8s additional settings for the k8s ping of jgroups. Key, Values are automatically expanded.
