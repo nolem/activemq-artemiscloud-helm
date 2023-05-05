@@ -172,6 +172,13 @@ containers:
         secretKeyRef:
           name: {{ include "artemis.secretname" . }}
           key: clientPassword
+    - name: AMQ_USER
+      value: {{ .Values.auth.clientUser }}
+    - name: AMQ_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: {{ include "artemis.secretname" . }}
+          key: clientPassword
     - name: BROKER_CONFIG_CLUSTER_PASSWORD
       valueFrom:
         secretKeyRef:
